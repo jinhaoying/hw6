@@ -1,5 +1,5 @@
-
 var circles = [];
+
 
 function setup() {
   createCanvas(400, 400);
@@ -12,7 +12,8 @@ function setup() {
       y: height / 2,
       xd: random(-2, 2),
       yd: random(-2, 2),
-      c: color(random(360), 60, 100)
+      c: color(random(360), 60, 100),
+			radius: 10
     }
   }
 }
@@ -27,7 +28,7 @@ function draw() {
 
     // draw it
     fill(circle.c);
-    ellipse(circle.x, circle.y, 10);
+    ellipse(circle.x, circle.y, circle.radius);
 
     // move it according to direction
     circle.x = circle.x + circle.xd;
@@ -36,9 +37,15 @@ function draw() {
     // check boundaries and update directions
     if (circle.x > width || circle.x < 0) {
       circle.xd = -circle.xd;
+			circle.radius -=2;
+			textSize(30);
+			text('!!!', circle.x, circle.y -10);
     }
     if (circle.y > height || circle.y < 0) {
       circle.yd = -circle.yd;
+			circle.radius -=2;
+			textSize(30);
+			text('!!!', circle.x, circle.y -10);
     }
   }
 }
