@@ -13,7 +13,7 @@ function setup() {
       xd: random(-2, 2),
       yd: random(-2, 2),
       c: color(random(360), 60, 100),
-			radius: 10
+			radius: 20,
     }
   }
 }
@@ -37,15 +37,23 @@ function draw() {
     // check boundaries and update directions
     if (circle.x > width || circle.x < 0) {
       circle.xd = -circle.xd;
-			circle.radius -=2;
+			circle.radius -=3;
 			textSize(30);
 			text('!!!', circle.x, circle.y -10);
     }
     if (circle.y > height || circle.y < 0) {
       circle.yd = -circle.yd;
-			circle.radius -=2;
+			circle.radius -=3
 			textSize(30);
 			text('!!!', circle.x, circle.y -10);
     }
+		if (circle.radius<=3){
+			circle.x= width / 2;
+      circle.y= height / 2;
+      circle.xd= random(-2, 2);
+      circle.yd= random(-2, 2);
+			circle.radius = 20;
+		}
+			
   }
 }
