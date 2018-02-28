@@ -47,13 +47,12 @@ function draw() {
 			textSize(30);
 			text('!!!', circle.x, circle.y -10);
     }
-		if (circle.radius<=3){
+    if (circle.radius<=3){
 			circle.x= width / 2;
       circle.y= height / 2;
       circle.xd= random(-2, 2);
       circle.yd= random(-2, 2);
 			circle.radius = 20;
-		}
-			
+    }		
   }
 }
