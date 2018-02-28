@@ -2,7 +2,7 @@ var puck = {
   x: 200,
   y: 200,
   xSpeed: -1,
-  ySpeed: 1,
+  ySpeed: 2,
   r: 15
 };
 var edgeOffset = 20;
@@ -52,6 +52,18 @@ function draw() {
   	puck.ySpeed= random(0.3,1);
 		player1.score +=1;
 	}
+	
+	
+	//paddle bounce ball
+  if (puck.x-puck.r/2<player1.x+player1.wd&&puck.y>player1.y&&puck.y<player1.y+player1.ht){
+		puck.x+=2
+		puck.xSpeed=-puck.xSpeed;
+	}
+	if (puck.x+puck.r/2>player2.x&&puck.y>player2.y&&puck.y<player2.y+player2.ht){
+		puck.x-=2
+		puck.xSpeed=-puck.xSpeed;
+	}
+	
   puck.x += puck.xSpeed;
   puck.y += puck.ySpeed;
   
